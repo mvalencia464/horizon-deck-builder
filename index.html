@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deckora - Colorado's Premier Deck Building Company</title>
+    <meta
+      name="description"
+      content="Transform your outdoor space with Colorado's premier deck building company. Custom deck design, construction, and repair services. Licensed, insured, and 5-star rated."
+    />
+
+    <!-- Chat Widget Script -->
+    <script
+      src="https://beta.leadconnectorhq.com/loader.js"
+      data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
+      data-widget-id="6855e1482a1b4b63f8da16b6"
+    ></script>
+
+    <!-- Custom CSS for HighLevel Forms -->
+    <style>
+      /* Global styles that may help with iframe content */
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Attempt to style iframe content globally */
+      iframe[src*="leadconnectorhq.com"] * {
+        box-sizing: border-box !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Form Embed Script -->
+    <script src="https://link.msgsndr.com/js/form_embed.js" async></script>
+
+    <!-- Custom script to handle form styling -->
+    <script>
+      // Function to inject custom CSS into HighLevel iframes
+      function injectHighLevelStyles() {
+        const iframes = document.querySelectorAll(
+          'iframe[src*="leadconnectorhq.com"]'
+        );
+
+        iframes.forEach((iframe) => {
+          iframe.addEventListener("load", function () {
+            try {
+              // Try to access iframe content (may be blocked by CORS)
+              const iframeDoc =
+                iframe.contentDocument || iframe.contentWindow.document;
+
+              if (iframeDoc) {
+                const customStyles = `
+                  <style>
+                    /* Reset spacing on HighLevel's wrapper DIVs */
+                    .field-container,
+                    .field-container > div,
+                    .col-12 {
+                      padding: 0 !important;
+                      margin: 2px 0 !important;
+                    }
+
+                    /* Hide unwanted, auto-generated address fields */
+                    .non-address-elements,
+                    #address,
+                    #form-address {
+                      display: none !important;
+                    }
+
+                    /* Hide default field labels if you use placeholders instead */
+                    .form-builder--item label {
+                      display: none !important;
+                    }
+
+                    .p {
+                      font-size: 7px !important;
+                    }
+
+                    .extra-top-padding {
+                      margin-top: 0 !important;
+                    }
+
+                    .fields-container {
+                      padding-top: 0 !important;
+                      padding-bottom: 0 !important;
+                      margin-top: 0 !important;
+                      margin-bottom: 0 !important;
+                    }
+                  </style>
+                `;
+
+                iframeDoc.head.insertAdjacentHTML("beforeend", customStyles);
+              }
+            } catch (e) {
+              // CORS restriction - styles will need to be applied in HighLevel directly
+              console.log("Cannot inject styles due to CORS policy");
+            }
+          });
+        });
+      }
+
+      // Run when DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initial injection
+        setTimeout(injectHighLevelStyles, 1000);
+
+        // Re-inject periodically in case forms load dynamically
+        setInterval(injectHighLevelStyles, 3000);
+      });
+    </script>
+  </body>
+</html>

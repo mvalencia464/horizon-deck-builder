@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent FOUC (Flash of Unstyled Content) */
+@layer base {
+  html {
+    visibility: hidden;
+    opacity: 0;
+    overflow-x: hidden;
+  }
+
+  html.loaded {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  body {
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Ensure containers don't exceed viewport width */
+  .max-w-7xl {
+    max-width: min(80rem, 100vw);
+  }
+}
+
+/* Clean iframe integration for HighLevel forms */
+@layer utilities {
+  /* Remove any default iframe styling that might interfere */
+  iframe[src*="leadconnectorhq.com"] {
+    display: block !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+  }
+
+  /* Ensure booking and form iframes display cleanly */
+  iframe[src*="widget/form"],
+  iframe[src*="widget/booking"] {
+    border: none !important;
+    outline: none !important;
+    background: white !important;
+  }
+
+  /* Mobile optimization for forms */
+  @media (max-width: 640px) {
+    iframe[src*="widget/form"] {
+      min-height: 500px;
+    }
+
+    iframe[src*="widget/booking"] {
+      min-height: 600px;
+    }
+  }
+
+  /* Tablet optimization */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    iframe[src*="widget/form"] {
+      height: 580px !important;
+    }
+
+    iframe[src*="widget/booking"] {
+      height: 700px !important;
+    }
+  }
+}
+
+/* Custom Form Styling to match HighLevel design */
+@layer components {
+  .custom-form-input {
+    @apply w-full h-9 px-4 py-2 border-2 border-gray-300 rounded-md text-sm text-gray-700 placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors duration-200;
+  }
+
+  .custom-form-button {
+    @apply w-full h-14 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold text-base rounded-md transition-colors duration-200 transform hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .custom-form-upload {
+    @apply relative flex flex-col items-center justify-center w-full h-20 border-2 border-dashed border-gray-300 rounded-md cursor-pointer transition-colors duration-200 hover:border-gray-400;
+  }
+
+  .custom-form-checkbox {
+    @apply w-4 h-4 mt-0.5 text-blue-600 bg-blue-50 border-gray-300 rounded focus:ring-blue-500 focus:ring-2;
+  }
+}
+
+/* Smooth loading animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Form field focus states */
+.form-field:focus-within {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+/* Button hover effects */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* Hide scrollbar but keep scroll functionality */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Ensure proper text rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Loading state for forms */
+.form-loading {
+  position: relative;
+}
+
+.form-loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .custom-form-input {
+    border-width: 3px;
+  }
+
+  .custom-form-button {
+    border: 2px solid transparent;
+  }
+
+  .custom-form-button:focus {
+    border-color: white;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

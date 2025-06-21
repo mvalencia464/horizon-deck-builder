@@ -1,0 +1,11 @@
+export { default as Navigation } from './Navigation';
+export { default as HeroSection } from './HeroSection';
+export { default as Gallery } from './Gallery';
+export { default as Reviews } from './Reviews';
+export { default as SocialProof } from './SocialProof';
+export { default as About } from './About';
+export { default as BookingSection } from './BookingSection';
+export { default as Footer } from './Footer';
+export { default as PrivacyPolicy } from './PrivacyPolicy';
+export { default as TermsOfService } from './TermsOfService';
+export { default as CustomForm } from './CustomForm';
