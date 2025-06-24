@@ -94,7 +94,7 @@ const BookingSection: React.FC = () => {
             </div>
             
             {/* Clean iframe container - no extra padding or margins */}
-            <div className="h-[700px]">
+            <div className="h-[900px] sm:h-[800px] lg:h-[700px]">
               <iframe 
                 src="https://api.leadconnectorhq.com/widget/booking/VK5p3BfnXq2LNHpzyHj6" 
                 className="w-full h-full border-none"
