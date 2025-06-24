@@ -76,10 +76,31 @@ export const initializeAddressAutocomplete = (inputElement: HTMLInputElement): v
     const place = autocomplete.getPlace();
     if (place.formatted_address) {
       inputElement.value = place.formatted_address;
-      
+
       // Trigger change event for React
       const event = new Event('input', { bubbles: true });
       inputElement.dispatchEvent(event);
+
+      // Clear the autocomplete dropdown by blurring the input
+      inputElement.blur();
+
+      // Alternative method: Clear the autocomplete suggestions
+      setTimeout(() => {
+        const pacContainer = document.querySelector('.pac-container');
+        if (pacContainer) {
+          (pacContainer as HTMLElement).style.display = 'none';
+        }
+      }, 100);
+    }
+  });
+
+  // Also hide dropdown when user clicks elsewhere
+  document.addEventListener('click', (event) => {
+    if (!inputElement.contains(event.target as Node)) {
+      const pacContainer = document.querySelector('.pac-container');
+      if (pacContainer) {
+        (pacContainer as HTMLElement).style.display = 'none';
+      }
     }
   });
 };

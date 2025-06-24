@@ -61,6 +61,24 @@ const CustomForm: React.FC<CustomFormProps> = ({
     }));
   };
 
+  const handleAddressFocus = () => {
+    // Show the autocomplete dropdown when address field is focused
+    const pacContainer = document.querySelector('.pac-container');
+    if (pacContainer) {
+      (pacContainer as HTMLElement).style.display = 'block';
+    }
+  };
+
+  const handleAddressBlur = () => {
+    // Hide the autocomplete dropdown after a short delay to allow for selection
+    setTimeout(() => {
+      const pacContainer = document.querySelector('.pac-container');
+      if (pacContainer) {
+        (pacContainer as HTMLElement).style.display = 'none';
+      }
+    }, 200);
+  };
+
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -275,6 +293,8 @@ const CustomForm: React.FC<CustomFormProps> = ({
                 placeholder="Search address"
                 value={formData.address}
                 onChange={handleInputChange}
+                onFocus={handleAddressFocus}
+                onBlur={handleAddressBlur}
                 className="w-full h-9 pl-12 pr-4 py-2 border-2 border-gray-300 rounded-md text-sm text-gray-700 placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors duration-200"
                 disabled={isSubmitting}
                 autoComplete="off"
