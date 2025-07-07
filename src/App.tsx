@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   Navigation,
   HeroSection,
@@ -13,24 +13,10 @@ import {
   Visualizer,
   VoiceAI
 } from './components';
-import { useResponsive } from './hooks/useResponsive';
 
 function App() {
-  // Enhanced responsive detection
-  const responsive = useResponsive();
-
   // Simple routing based on URL path
   const path = window.location.pathname;
-
-  // Log responsive state for debugging
-  useEffect(() => {
-    console.log('App responsive state:', {
-      breakpoint: responsive.breakpoint,
-      width: responsive.width,
-      isDesktop: responsive.isDesktop,
-      isLargeDesktop: responsive.isLargeDesktop
-    });
-  }, [responsive]);
 
   if (path === '/privacy') {
     return <PrivacyPolicy />;
@@ -48,13 +34,9 @@ function App() {
     return <VoiceAI />;
   }
 
-  // Default home page with enhanced responsive classes
+  // Default home page - pure Tailwind responsive classes only
   return (
-    <div
-      className={`min-h-screen debug-responsive ${responsive.breakpoint}`}
-      data-responsive-width={responsive.width}
-      data-responsive-breakpoint={responsive.breakpoint}
-    >
+    <div className="min-h-screen debug-responsive">
       <Navigation />
       <main>
         <section id="home">
