@@ -179,7 +179,7 @@ The webhook sends this standardized payload:
 ```json
 {
   "first_name": "Maria",
-  "last_name": "Wendt",
+  "last_name": "Valencia",
   "phone": "5091234567",
   "email": "maria@stokeleads.com",
   "address": "123 Main Street",
@@ -191,7 +191,7 @@ The webhook sends this standardized payload:
   "consent": true,
   "source": "horizon_deck_builder",
   "location_id": "YOUR_LOCATION_ID",
-  "name": "Maria Wendt",
+  "name": "Maria Valencia",
   "submitted_at": "2025-01-07T20:30:00.000Z",
   "project_type": "Deck Building",
   "message": "I need a quote for a new deck construction"
@@ -252,7 +252,7 @@ For new projects, create a `webhook-test.html` file with this template:
 
             const testData = {
                 "first_name": "Maria",
-                "last_name": "Wendt",
+                "last_name": "Valencia",
                 "phone": "5091234567",
                 "email": "maria@stokeleads.com",
                 "address": "123 Main Street",
@@ -264,7 +264,7 @@ For new projects, create a `webhook-test.html` file with this template:
                 "consent": true,
                 "source": "your_project_name", // UPDATE THIS
                 "location_id": "YOUR_LOCATION_ID", // UPDATE THIS
-                "name": "Maria Wendt",
+                "name": "Maria Valencia",
                 "submitted_at": new Date().toISOString(),
                 "project_type": "Sample Project",
                 "message": "Test message for webhook mapping"
