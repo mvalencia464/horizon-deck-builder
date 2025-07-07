@@ -36,7 +36,7 @@ function App() {
 
   // Default home page
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen debug-responsive">
       <Navigation />
       <main>
         <section id="home">
