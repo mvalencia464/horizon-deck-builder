@@ -29,6 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   useCustomForm = true,
   webhookUrl = import.meta.env.VITE_HIGHLEVEL_WEBHOOK_URL || ""
 }) => {
+  // Force cache bust - responsive layout should work properly now
 
   return (
     <section className="relative min-h-[70vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
