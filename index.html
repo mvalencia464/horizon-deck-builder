@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+
+    <!-- Preload critical CSS to ensure responsive styles load first -->
+    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
     <title>Horizon Carpentry & Handyman - Fairmount GA Carpenter & Handyman Services</title>
     <meta
       name="description"
@@ -97,20 +101,132 @@
       data-widget-id="685ae39e7e2b2461766c5b7d"
     ></script>
 
-    <!-- Custom CSS for HighLevel Forms -->
+    <!-- Critical CSS for immediate responsive behavior -->
     <style>
-      /* Global styles that may help with iframe content */
-      * {
-        box-sizing: border-box;
+      /* Critical responsive styles loaded immediately */
+      html {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        overflow-x: hidden;
       }
 
-      /* Attempt to style iframe content globally */
+      * {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+
+      /* Ensure proper responsive container behavior */
+      .responsive-container {
+        width: 100%;
+        max-width: 100vw;
+        margin: 0 auto;
+      }
+
+      /* Force proper responsive breakpoints */
+      @media (min-width: 768px) {
+        .responsive-container {
+          max-width: 1280px;
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .responsive-container {
+          padding-left: 3rem;
+          padding-right: 3rem;
+        }
+      }
+
+      /* Global styles that may help with iframe content */
       iframe[src*="leadconnectorhq.com"] * {
         box-sizing: border-box !important;
+      }
+
+      /* Prevent FOUC */
+      html:not(.loaded) {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      html.loaded {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.15s ease-in-out;
       }
     </style>
   </head>
   <body>
+    <!-- Responsive Detection Script - Runs immediately -->
+    <script>
+      (function() {
+        // Immediate responsive detection and viewport fix
+        function setResponsiveClasses() {
+          const width = window.innerWidth || document.documentElement.clientWidth;
+          const html = document.documentElement;
+
+          // Remove all existing responsive classes
+          html.classList.remove('mobile', 'tablet', 'desktop', 'large-desktop');
+
+          // Add appropriate class based on actual viewport width
+          if (width < 768) {
+            html.classList.add('mobile');
+            html.setAttribute('data-breakpoint', 'mobile');
+          } else if (width < 1024) {
+            html.classList.add('tablet');
+            html.setAttribute('data-breakpoint', 'tablet');
+          } else if (width < 1280) {
+            html.classList.add('desktop');
+            html.setAttribute('data-breakpoint', 'desktop');
+          } else {
+            html.classList.add('large-desktop');
+            html.setAttribute('data-breakpoint', 'large-desktop');
+          }
+
+          // Force viewport meta tag update
+          const viewport = document.querySelector('meta[name="viewport"]');
+          if (viewport) {
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes');
+          }
+
+          // Debug logging
+          console.log('Responsive Detection:', {
+            width: width,
+            breakpoint: html.getAttribute('data-breakpoint'),
+            userAgent: navigator.userAgent.substring(0, 50)
+          });
+        }
+
+        // Run immediately
+        setResponsiveClasses();
+
+        // Run on resize with debouncing
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(setResponsiveClasses, 100);
+        });
+
+        // Run on orientation change
+        window.addEventListener('orientationchange', function() {
+          setTimeout(setResponsiveClasses, 200);
+        });
+
+        // Ensure it runs after DOM is loaded
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', setResponsiveClasses);
+        }
+      })();
+    </script>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
