@@ -31,7 +31,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
 
   return (
-    <section className="relative min-h-[70vh] lg:h-[70vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[70vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Custom Gradient Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -47,11 +47,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           
           {/* Left Content - Always visible */}
-          <div className="text-center lg:text-left space-y-8">
+          <div className="text-center md:text-left space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
                 {title}
@@ -64,7 +64,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Action Buttons - Show on all devices */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a
                 href="#gallery"
                 className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-center"
@@ -81,7 +81,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Social Proof - Always visible */}
             <div className="bg-blue-800/30 backdrop-blur-sm rounded-xl p-6 border border-blue-400/20">
-              <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
+              <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
@@ -91,7 +91,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Right Form */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center md:justify-end">
             {useCustomForm ? (
               <CustomForm 
                 title={formTitle}
@@ -106,7 +106,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   </div>
                   
                   {/* HighLevel Form Container */}
-                  <div className="h-[500px] lg:h-[600px]">
+                  <div className="h-[500px] md:h-[600px]">
                     <iframe
                       src="https://api.leadconnectorhq.com/widget/form/SuFpnDAGDmAWtOUrKZQu"
                       className="w-full h-full border-0"

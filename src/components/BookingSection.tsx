@@ -4,7 +4,7 @@ import { Calendar, Clock, CheckCircle } from 'lucide-react';
 const BookingSection: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -94,7 +94,7 @@ const BookingSection: React.FC = () => {
             </div>
             
             {/* Clean iframe container - no extra padding or margins */}
-            <div className="h-[900px] sm:h-[800px] lg:h-[700px]">
+            <div className="h-[900px] sm:h-[800px] md:h-[700px]">
               <iframe 
                 src="https://api.leadconnectorhq.com/widget/booking/VK5p3BfnXq2LNHpzyHj6" 
                 className="w-full h-full border-none"

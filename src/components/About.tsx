@@ -27,9 +27,9 @@ const About: React.FC = () => {
 
   return (
     <section id="about" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
           {/* Left Content */}
           <div>
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
@@ -106,7 +106,7 @@ const About: React.FC = () => {
         </div>
 
         {/* Values Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {values.map((value, index) => (
             <div
               key={index}
