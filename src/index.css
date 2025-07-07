@@ -4,11 +4,29 @@
 
 /* Prevent FOUC (Flash of Unstyled Content) and ensure proper responsive behavior */
 @layer base {
+  /* Use higher specificity instead of !important to override external scripts */
+  html.plt-desktop,
+  html.plt-mobile,
+  html.plt-tablet,
+  html[mode="md"],
+  html[mode="ios"],
+  html[mode="android"] {
+    /* Reset external framework styles with specificity */
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   html {
     overflow-x: hidden;
     /* Ensure proper viewport behavior on all devices */
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    width: 100%;
+    height: auto;
   }
 
   html:not(.loaded) {
@@ -41,6 +59,104 @@
   /* Ensure containers don't exceed viewport width */
   .max-w-7xl {
     max-width: min(80rem, 100vw);
+  }
+}
+
+/* Ensure Tailwind responsive classes work with higher specificity */
+@layer utilities {
+  /* Use CSS containment to isolate our layout from external interference */
+  body {
+    contain: layout style;
+  }
+
+  /* Higher specificity selectors for responsive grid classes */
+  html body .grid.md\:grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  html body .grid.md\:grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  html body .grid.md\:grid-cols-4 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  @media (min-width: 768px) {
+    html body .grid.md\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    html body .grid.md\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    html body .grid.md\:grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    html body .grid.lg\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    html body .grid.lg\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    html body .grid.lg\:grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  /* Higher specificity for flex responsive classes */
+  @media (min-width: 768px) {
+    html body .md\:flex-row {
+      flex-direction: row;
+    }
+
+    html body .md\:flex-col {
+      flex-direction: column;
+    }
+
+    html body .md\:block,
+    html body .hidden.md\:block {
+      display: block;
+    }
+
+    html body .md\:hidden {
+      display: none;
+    }
+
+    /* Ensure navigation shows on desktop */
+    html body nav .hidden.md\:block {
+      display: block;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    html body .lg\:flex-row {
+      flex-direction: row;
+    }
+
+    html body .lg\:flex-col {
+      flex-direction: column;
+    }
+
+    html body .lg\:block,
+    html body .hidden.lg\:block {
+      display: block;
+    }
+
+    html body .lg\:hidden {
+      display: none;
+    }
+
+    /* Ensure navigation elements show on large screens */
+    html body nav .hidden.lg\:inline {
+      display: inline;
+    }
   }
 }
 

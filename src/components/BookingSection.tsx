@@ -95,14 +95,14 @@ const BookingSection: React.FC = () => {
             
             {/* Clean iframe container - no extra padding or margins */}
             <div className="h-[900px] sm:h-[800px] md:h-[700px]">
-              <iframe 
-                src="https://api.leadconnectorhq.com/widget/booking/VK5p3BfnXq2LNHpzyHj6" 
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/booking/VK5p3BfnXq2LNHpzyHj6"
                 className="w-full h-full border-none"
                 style={{
                   display: 'block',
                   borderRadius: '0 0 1rem 1rem'
                 }}
-                scrolling="no" 
+                scrolling="no"
                 frameBorder="0"
                 id="VK5p3BfnXq2LNHpzyHj6_booking"
                 title="Booking Calendar"

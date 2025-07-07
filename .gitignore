@@ -31,3 +31,6 @@ dist-ssr
 
 # Sensitive configuration files
 webhook-test-live.html
+
+# Local Netlify folder
+.netlify
