@@ -36,7 +36,7 @@ function App() {
 
   // Default home page - pure Tailwind responsive classes only
   return (
-    <div className="min-h-screen debug-responsive">
+    <div className="min-h-screen">
       <Navigation />
       <main>
         <section id="home">
