@@ -5,19 +5,19 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    "Custom Deck Design",
     "Deck Construction",
-    "Deck Repair & Restoration",
-    "Composite Decking",
-    "Wood Decking",
-    "Multi-Level Decks",
-    "Deck Railings",
-    "Outdoor Lighting"
+    "Bathroom Remodeling",
+    "Home Repairs",
+    "Handyman Services",
+    "Home Renovations",
+    "Electrical Work",
+    "Siding Installation",
+    "Tree Service"
   ];
 
   const serviceAreas = [
-    "Denver", "Boulder", "Fort Collins", "Colorado Springs",
-    "Lakewood", "Westminster", "Arvada", "Thornton"
+    "Fairmount", "La Fayette", "Dalton", "Rome",
+    "Calhoun", "Chatsworth", "Summerville", "Trion"
   ];
 
   return (
@@ -26,10 +26,10 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <h3 className="text-2xl font-bold mb-4">Deckora</h3>
+            <h3 className="text-2xl font-bold mb-4">Horizon Carpentry & Handyman</h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Colorado's premier deck building company. We transform outdoor spaces with 
-              exceptional craftsmanship and personalized service.
+              North Georgia's trusted carpentry and handyman specialists. We bring quality
+              craftsmanship and reliable service to every project.
             </p>
             
             {/* Social Links */}
@@ -99,32 +99,32 @@ const Footer: React.FC = () => {
               <div className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium">(555) 123-4567</p>
+                  <p className="font-medium">(509) 620-9939</p>
                   <p className="text-gray-400 text-sm">Call or text anytime</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium">info@deckora.com</p>
+                  <p className="font-medium">gibbywalker224@gmail.com</p>
                   <p className="text-gray-400 text-sm">Email us your questions</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium">Denver Metro Area</p>
-                  <p className="text-gray-400 text-sm">Serving all of Colorado</p>
+                  <p className="font-medium">166 Spring St</p>
+                  <p className="text-gray-400 text-sm">Fairmount, GA 30139</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-3">
                 <Clock className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium">Mon-Fri: 7AM-6PM</p>
-                  <p className="text-gray-400 text-sm">Sat: 8AM-4PM</p>
+                  <p className="font-medium">Mon-Thu: 9AM-6PM</p>
+                  <p className="text-gray-400 text-sm">Fri: 9AM-6PM</p>
                 </div>
               </div>
             </div>
@@ -135,7 +135,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © {currentYear} Deckora. All rights reserved.
+              © {currentYear} Horizon Carpentry & Handyman. All rights reserved.
             </div>
             
             <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
@@ -153,7 +153,7 @@ const Footer: React.FC = () => {
           
           <div className="mt-4 text-center">
             <p className="text-gray-500 text-xs">
-              Licensed, Bonded & Insured • Colorado Contractor License #12345 • EPA Lead-Safe Certified
+              Licensed, Bonded & Insured • Georgia Contractor License • Fully Insured & Bonded
             </p>
           </div>
         </div>

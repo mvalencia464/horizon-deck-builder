@@ -5,25 +5,25 @@ const SocialProof: React.FC = () => {
   const stats = [
     {
       icon: Users,
-      number: "500+",
+      number: "50+",
       label: "Happy Customers",
-      description: "Satisfied homeowners across Colorado"
+      description: "Satisfied homeowners across North Georgia"
     },
     {
       icon: Calendar,
-      number: "15+",
+      number: "10+",
       label: "Years Experience",
-      description: "Decades of deck building expertise"
+      description: "Years of carpentry and handyman services"
     },
     {
       icon: CheckCircle,
-      number: "1000+",
+      number: "100+",
       label: "Projects Completed",
-      description: "Successfully delivered deck projects"
+      description: "Successfully delivered carpentry projects"
     },
     {
       icon: Award,
-      number: "5.0",
+      number: "4.7",
       label: "Star Rating",
       description: "Average rating from Google reviews"
     }
@@ -32,16 +32,16 @@ const SocialProof: React.FC = () => {
   const certifications = [
     "Licensed & Insured",
     "BBB A+ Rating",
-    "Certified Deck Builders",
-    "EPA Lead-Safe Certified",
+    "Certified Carpenters",
+    "Bonded Professionals",
     "OSHA Safety Trained",
-    "Manufacturer Warranties"
+    "Quality Guarantees"
   ];
 
   const serviceAreas = [
-    "Denver", "Boulder", "Fort Collins", "Colorado Springs",
-    "Lakewood", "Westminster", "Arvada", "Thornton",
-    "Centennial", "Broomfield", "Longmont", "Loveland"
+    "Fairmount", "La Fayette", "Dalton", "Rome",
+    "Calhoun", "Chatsworth", "Summerville", "Trion",
+    "Ringgold", "Chickamauga", "Rossville", "Fort Oglethorpe"
   ];
 
   return (
@@ -50,10 +50,10 @@ const SocialProof: React.FC = () => {
         {/* Stats Section */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Trusted by Colorado Homeowners
+            Trusted by North Georgia Homeowners
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our track record speaks for itself. We've built our reputation one deck at a time.
+            Our track record speaks for itself. We've built our reputation one project at a time.
           </p>
         </div>
 
@@ -111,10 +111,10 @@ const SocialProof: React.FC = () => {
           {/* Service Areas */}
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Serving the Front Range
+              Serving North Georgia
             </h3>
             <p className="text-gray-600 mb-6">
-              We proudly serve homeowners throughout the Colorado Front Range with professional deck building services.
+              We proudly serve homeowners throughout North Georgia with professional carpentry and handyman services.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {serviceAreas.map((area, index) => (

@@ -5,15 +5,18 @@
 /* Prevent FOUC (Flash of Unstyled Content) */
 @layer base {
   html {
+    overflow-x: hidden;
+  }
+
+  html:not(.loaded) {
     visibility: hidden;
     opacity: 0;
-    overflow-x: hidden;
   }
 
   html.loaded {
     visibility: visible;
     opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.15s ease-in-out;
   }
 
   body {
@@ -87,42 +90,58 @@
   }
 }
 
-/* Google Places Autocomplete Styling */
+/* Google Places Autocomplete Styling - Using CSS custom properties to avoid CORS issues */
+:root {
+  --pac-z-index: 9999;
+  --pac-border-radius: 8px;
+  --pac-border-color: #d1d5db;
+  --pac-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --pac-margin-top: 2px;
+  --pac-item-padding: 12px 16px;
+  --pac-item-border: 1px solid #f3f4f6;
+  --pac-item-font-size: 14px;
+  --pac-hover-bg: #f9fafb;
+  --pac-selected-bg: #eff6ff;
+  --pac-matched-color: #1d4ed8;
+}
+
+/* Apply styles without using !important to avoid CORS conflicts */
 .pac-container {
-  z-index: 9999 !important;
-  border-radius: 8px !important;
-  border: 1px solid #d1d5db !important;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
-  margin-top: 2px !important;
+  z-index: var(--pac-z-index);
+  border-radius: var(--pac-border-radius);
+  border: 1px solid var(--pac-border-color);
+  box-shadow: var(--pac-shadow);
+  margin-top: var(--pac-margin-top);
+  font-family: 'Inter', sans-serif;
 }
 
 .pac-item {
-  padding: 12px 16px !important;
-  border-bottom: 1px solid #f3f4f6 !important;
-  cursor: pointer !important;
-  font-size: 14px !important;
+  padding: var(--pac-item-padding);
+  border-bottom: var(--pac-item-border);
+  cursor: pointer;
+  font-size: var(--pac-item-font-size);
 }
 
 .pac-item:hover {
-  background-color: #f9fafb !important;
+  background-color: var(--pac-hover-bg);
 }
 
 .pac-item-selected {
-  background-color: #eff6ff !important;
+  background-color: var(--pac-selected-bg);
 }
 
 .pac-matched {
-  font-weight: 600 !important;
-  color: #1d4ed8 !important;
+  font-weight: 600;
+  color: var(--pac-matched-color);
 }
 
 /* Hide the Google Places dropdown when not needed */
 .pac-container.pac-hidden {
   display: none !important;
+}
 
-  .custom-form-checkbox {
-    @apply w-4 h-4 mt-0.5 text-blue-600 bg-blue-50 border-gray-300 rounded focus:ring-blue-500 focus:ring-2;
-  }
+.custom-form-checkbox {
+  @apply w-4 h-4 mt-0.5 text-blue-600 bg-blue-50 border-gray-300 rounded focus:ring-blue-500 focus:ring-2;
 }
 
 /* Smooth loading animation */

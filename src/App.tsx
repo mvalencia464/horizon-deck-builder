@@ -10,7 +10,8 @@ import {
   Footer,
   PrivacyPolicy,
   TermsOfService,
-  Visualizer
+  Visualizer,
+  VoiceAI
 } from './components';
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
 
   if (path === '/visualizer') {
     return <Visualizer />;
+  }
+
+  if (path === '/voice') {
+    return <VoiceAI />;
   }
 
   // Default home page

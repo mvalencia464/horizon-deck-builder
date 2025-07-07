@@ -51,7 +51,8 @@ export const loadGoogleMapsAPI = (): Promise<void> => {
       resolve();
     };
 
-    script.onerror = () => {
+    script.onerror = (error) => {
+      console.error('Failed to load Google Maps API script:', error);
       isLoading = false;
       reject(new Error('Failed to load Google Maps API'));
     };
@@ -60,47 +61,160 @@ export const loadGoogleMapsAPI = (): Promise<void> => {
   });
 };
 
-export const initializeAddressAutocomplete = (inputElement: HTMLInputElement): void => {
+export const initializeAddressAutocomplete = (
+  inputElement: HTMLInputElement,
+  onAddressSelected?: (addressData: {
+    address: string;
+    city: string;
+    state: string;
+    country: string;
+    postalCode: string;
+  }) => void
+): void => {
+  console.log('Initializing address autocomplete...');
   if (!window.google || !window.google.maps) {
     console.error('Google Maps API not loaded');
     return;
   }
+  console.log('Google Maps API is loaded, creating autocomplete...');
 
   const autocomplete = new window.google.maps.places.Autocomplete(inputElement, {
     types: ['address'],
-    componentRestrictions: { country: 'us' }, // Restrict to US addresses
+    componentRestrictions: { country: ['us', 'ca'] }, // Restrict to US and Canada
     fields: ['formatted_address', 'geometry', 'address_components']
   });
 
-  autocomplete.addListener('place_changed', () => {
+  let isPlaceSelected = false;
+
+  // Function to fill in address like the working HTML
+  function fillInAddress() {
     const place = autocomplete.getPlace();
-    if (place.formatted_address) {
-      inputElement.value = place.formatted_address;
+    console.log('Place changed event fired:', place);
 
-      // Trigger change event for React
-      const event = new Event('input', { bubbles: true });
-      inputElement.dispatchEvent(event);
+    // Clear previous address fields
+    const addressEl = document.getElementById('address') as HTMLInputElement;
+    const cityEl = document.getElementById('city') as HTMLInputElement;
+    const stateEl = document.getElementById('state') as HTMLInputElement;
+    const countryEl = document.getElementById('country') as HTMLInputElement;
+    const postalCodeEl = document.getElementById('postal_code') as HTMLInputElement;
 
-      // Clear the autocomplete dropdown by blurring the input
-      inputElement.blur();
+    if (addressEl) addressEl.value = '';
+    if (cityEl) cityEl.value = '';
+    if (stateEl) stateEl.value = '';
+    if (countryEl) countryEl.value = '';
+    if (postalCodeEl) postalCodeEl.value = '';
 
-      // Alternative method: Clear the autocomplete suggestions
-      setTimeout(() => {
-        const pacContainer = document.querySelector('.pac-container');
-        if (pacContainer) {
-          (pacContainer as HTMLElement).style.display = 'none';
+    let streetNumber = '';
+    let route = '';
+
+    if (place && place.address_components) {
+      for (const component of place.address_components) {
+        const componentType = component.types[0];
+        switch (componentType) {
+          case "street_number":
+            streetNumber = component.long_name;
+            break;
+          case "route":
+            route = component.long_name;
+            break;
+          case "locality":
+            if (cityEl) cityEl.value = component.long_name;
+            break;
+          case "administrative_area_level_1":
+            if (stateEl) stateEl.value = component.short_name;
+            break;
+          case "country":
+            if (countryEl) countryEl.value = component.long_name;
+            break;
+          case "postal_code":
+            if (postalCodeEl) postalCodeEl.value = component.long_name;
+            break;
         }
-      }, 100);
+      }
     }
+
+    // Combine street number and route for the full street address
+    const fullAddress = `${streetNumber} ${route}`.trim();
+    if (addressEl) addressEl.value = fullAddress;
+
+    console.log("Address populated:", {
+      address: addressEl?.value,
+      city: cityEl?.value,
+      state: stateEl?.value,
+      country: countryEl?.value,
+      postal_code: postalCodeEl?.value
+    });
+
+    // Call the callback with parsed address data
+    if (onAddressSelected) {
+      onAddressSelected({
+        address: fullAddress,
+        city: cityEl?.value || '',
+        state: stateEl?.value || '',
+        country: countryEl?.value || '',
+        postalCode: postalCodeEl?.value || ''
+      });
+    }
+  }
+
+  autocomplete.addListener('place_changed', fillInAddress);
+
+  // Monitor for pac-container creation and hide it if a place was just selected
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          const element = node as HTMLElement;
+          if (element.classList?.contains('pac-container') ||
+              element.querySelector?.('.pac-container')) {
+
+            const pacContainer = element.classList?.contains('pac-container')
+              ? element
+              : element.querySelector('.pac-container') as HTMLElement;
+
+            if (pacContainer && isPlaceSelected) {
+              pacContainer.style.display = 'none';
+              pacContainer.style.visibility = 'hidden';
+            }
+          }
+        }
+      });
+    });
   });
 
-  // Also hide dropdown when user clicks elsewhere
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+
+  // Handle direct clicks on pac items
   document.addEventListener('click', (event) => {
-    if (!inputElement.contains(event.target as Node)) {
-      const pacContainer = document.querySelector('.pac-container');
-      if (pacContainer) {
-        (pacContainer as HTMLElement).style.display = 'none';
-      }
+    const target = event.target as HTMLElement;
+
+    if (target.closest('.pac-item')) {
+      isPlaceSelected = true;
+      console.log('Pac item clicked directly');
+
+      // Wait for Google to process the click, then hide
+      setTimeout(() => {
+        const pacContainers = document.querySelectorAll('.pac-container');
+        pacContainers.forEach(container => {
+          (container as HTMLElement).style.display = 'none';
+          (container as HTMLElement).style.visibility = 'hidden';
+        });
+      }, 50);
+    }
+  }, true);
+
+  // Hide dropdown when clicking outside
+  document.addEventListener('click', (event) => {
+    const target = event.target as Node;
+    const pacContainer = document.querySelector('.pac-container');
+
+    if (!inputElement.contains(target) &&
+        pacContainer &&
+        !pacContainer.contains(target)) {
+      (pacContainer as HTMLElement).style.display = 'none';
     }
   });
 };

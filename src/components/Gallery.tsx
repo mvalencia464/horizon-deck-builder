@@ -5,16 +5,16 @@ const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const galleryImages = [
-    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f4899224d7169c832010.webp",
-    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f489ac9458664ab026da.webp",
-    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f4897b2c8bf20e9e9023.webp",
-    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f4891a74cd2cc56bb5f6.webp",
-    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f48950dfe61f92215c25.webp",
-    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f489ac94581333b026db.webp",
-    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f4897b2c8b38da9e9024.webp",
-    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f4897b2c8bb9089e9025.webp",
-    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f489ca34e30b232b9252.webp",
-    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f48950dfe649d4215c27.webp",
+    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/yioc9gxnGLaNC1p4s1CX/media/685c1a982c6cb1cde1f6e960.webp",
+    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/yioc9gxnGLaNC1p4s1CX/media/685c1a984669a95105772219.webp",
+    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/yioc9gxnGLaNC1p4s1CX/media/685c1a98a392d00de30dd0d4.webp",
+    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/yioc9gxnGLaNC1p4s1CX/media/685c1a98a392d048090dd0d3.webp",
+    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/yioc9gxnGLaNC1p4s1CX/media/685c1a98caca582c1822f8d7.webp",
+    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/yioc9gxnGLaNC1p4s1CX/media/685c1a98caca587f9322f8d6.webp",
+    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/yioc9gxnGLaNC1p4s1CX/media/685c1a98e581e04bec34c2d7.webp",
+    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/yioc9gxnGLaNC1p4s1CX/media/685c1a98f670206fb8fc705f.webp",
+    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/yioc9gxnGLaNC1p4s1CX/media/685c1a997f1b992cfdb3d608.webp",
+    "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/yioc9gxnGLaNC1p4s1CX/media/685c1a997f1b994d9fb3d607.webp",
     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f48950dfe6756e215c26.webp",
     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f489d0c8df0321e1126e.webp",
     "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f48942e8ef583415f8e8.webp",
@@ -88,11 +88,11 @@ const Gallery: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Our Deck Building Portfolio
+            Our Carpentry & Home Improvement Portfolio
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore our stunning collection of custom deck projects. From intimate backyard retreats 
-            to expansive entertainment spaces, see how we transform outdoor living dreams into reality.
+            Explore our collection of custom carpentry and home improvement projects. From custom stairs
+            to complete home renovations, see how we transform your vision into beautiful, functional reality.
           </p>
         </div>
 
@@ -107,7 +107,7 @@ const Gallery: React.FC = () => {
               <div className="aspect-square">
                 <img
                   src={image}
-                  alt={`Deck project ${index + 1}`}
+                  alt={`Carpentry project ${index + 1}`}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   loading="lazy"
                 />
@@ -124,13 +124,13 @@ const Gallery: React.FC = () => {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <p className="text-lg text-gray-600 mb-8">
-            Ready to create your dream deck? Let's discuss your vision!
+            Ready to transform your home? Let's discuss your vision!
           </p>
           <a
             href="#contact"
             className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
           >
-            Get Your Free Design Consultation
+            Get Your Free Project Consultation
           </a>
         </div>
       </div>
@@ -164,7 +164,7 @@ const Gallery: React.FC = () => {
             {/* Image */}
             <img
               src={galleryImages[selectedImage]}
-              alt={`Deck project ${selectedImage + 1}`}
+              alt={`Carpentry project ${selectedImage + 1}`}
               className="max-w-full max-h-full object-contain rounded-lg"
             />
 

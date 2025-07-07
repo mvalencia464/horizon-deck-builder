@@ -15,56 +15,56 @@ const Reviews: React.FC = () => {
   const reviews: Review[] = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      location: "Denver, CO",
+      name: "Rhett Thompson",
+      location: "Marietta, GA",
       rating: 5,
-      text: "DeckMaster Pro exceeded all our expectations! They transformed our backyard into an amazing outdoor living space. The attention to detail and craftsmanship is outstanding. Our deck has become the centerpiece of our home.",
-      date: "2 weeks ago",
+      text: "I hired Mike and his crew for a complex rebuild of my residential home in Marietta. Initially, Mike was hired to handle the intricate framing requirements to change my ranch house into a three story 6,000 sq ft home. The results were exceptional. Afterwards, windows, doors, trim, etc. elements were added to the project upon the excellence of their capabilities. Multitalented and good quality -- recommended for sure.",
+      date: "2 years ago",
       avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
     },
     {
       id: 2,
-      name: "Mike Rodriguez",
-      location: "Boulder, CO",
+      name: "Michael Morris",
+      location: "Fairmount, GA",
       rating: 5,
-      text: "Professional, reliable, and incredibly skilled. The team completed our multi-level deck project on time and within budget. The quality of materials and workmanship is top-notch. Highly recommend!",
-      date: "1 month ago",
+      text: "Mike Walker and his team did some work on our home and they did an excellent job! Highly recommend them!",
+      date: "5 days ago",
       avatar: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
     },
     {
       id: 3,
-      name: "Emily Chen",
-      location: "Fort Collins, CO",
+      name: "Amanda Jenkins",
+      location: "North Georgia",
       rating: 5,
-      text: "From design to completion, the entire process was seamless. They listened to our ideas and created something even better than we imagined. Our new deck is perfect for entertaining and family gatherings.",
-      date: "3 weeks ago",
+      text: "Awesome fast service. Very professional I hired them to put up a sign for me and they not only got it up in the day I called them it looked awesome. If you need work done I highly recommend them.",
+      date: "2 years ago",
       avatar: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
     },
     {
       id: 4,
-      name: "David Thompson",
-      location: "Colorado Springs, CO",
+      name: "David Are",
+      location: "North Georgia",
       rating: 5,
-      text: "Outstanding work! They handled everything from permits to cleanup. The 3D design helped us visualize the final result perfectly. Our deck has increased our home's value significantly.",
-      date: "2 months ago",
+      text: "Excellent construction of a large deck on a steep lot. His ability to work different shapes into my deck was key to a great outcome. Strongly recommend!!!",
+      date: "2 years ago",
       avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
     },
     {
       id: 5,
-      name: "Lisa Martinez",
-      location: "Lakewood, CO",
+      name: "John Evans",
+      location: "North Georgia",
       rating: 5,
-      text: "Incredible attention to detail and customer service. They worked around our schedule and kept us informed throughout the project. The final result is absolutely beautiful - we love our new outdoor space!",
-      date: "1 month ago",
+      text: "Mike does great work at a fair price. Highly recommended!",
+      date: "1 year ago",
       avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
     },
     {
       id: 6,
-      name: "Robert Kim",
-      location: "Westminster, CO",
+      name: "Beth Hillhouse",
+      location: "North Georgia",
       rating: 5,
-      text: "Best investment we've made in our home! The team was professional, clean, and delivered exactly what they promised. Our deck is now our favorite place to relax and entertain guests.",
-      date: "3 months ago",
+      text: "Very happy with the work they completed. They were very helpful and knowledgeable. I would highly recommend using their services.",
+      date: "2 years ago",
       avatar: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
     }
   ];
@@ -87,15 +87,15 @@ const Reviews: React.FC = () => {
             What Our Clients Say
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Don't just take our word for it. Here's what our satisfied customers have to say about their deck building experience with us.
+            Don't just take our word for it. Here's what our satisfied customers have to say about their carpentry and handyman experience with us.
           </p>
-          
+
           {/* Overall Rating */}
           <div className="inline-flex items-center bg-blue-50 px-6 py-3 rounded-full">
             <div className="flex items-center space-x-2">
               {renderStars(5)}
-              <span className="text-2xl font-bold text-gray-900 ml-2">5.0</span>
-              <span className="text-gray-600">• 150+ Reviews</span>
+              <span className="text-2xl font-bold text-gray-900 ml-2">4.7</span>
+              <span className="text-gray-600">• 12+ Reviews</span>
             </div>
           </div>
         </div>
@@ -144,14 +144,14 @@ const Reviews: React.FC = () => {
               Ready to Join Our Happy Customers?
             </h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Experience the same exceptional service and craftsmanship that has earned us 150+ five-star reviews. 
+              Experience the same exceptional service and craftsmanship that has earned us 4.7-star reviews.
               Get your free consultation today!
             </p>
             <a
               href="#contact"
               className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105"
             >
-              Start Your Deck Project
+              Start Your Project Today
             </a>
           </div>
         </div>

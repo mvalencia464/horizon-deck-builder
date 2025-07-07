@@ -5,23 +5,23 @@ const About: React.FC = () => {
   const values = [
     {
       icon: Hammer,
-      title: "Expert Craftsmanship",
-      description: "Over 15 years of experience building custom decks with meticulous attention to detail and superior materials."
+      title: "Master Craftsmanship",
+      description: "Decades of experience in carpentry, home improvement, and custom stair building with attention to every detail."
     },
     {
       icon: Shield,
       title: "Quality Guarantee",
-      description: "We stand behind our work with comprehensive warranties and use only the finest materials for lasting durability."
+      description: "We stand behind our work with comprehensive warranties and use only the finest materials for lasting results."
     },
     {
       icon: Clock,
-      title: "Timely Delivery",
-      description: "We respect your time and complete projects on schedule without compromising on quality or safety standards."
+      title: "Reliable Service",
+      description: "We respect your time and complete projects on schedule while maintaining the highest quality standards."
     },
     {
       icon: Heart,
-      title: "Customer First",
-      description: "Your satisfaction is our priority. We listen to your vision and exceed expectations with personalized service."
+      title: "Customer Focused",
+      description: "Your satisfaction drives everything we do. We listen, communicate, and deliver beyond expectations."
     }
   ];
 
@@ -33,38 +33,38 @@ const About: React.FC = () => {
           {/* Left Content */}
           <div>
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Building Dreams, One Deck at a Time
+              Crafting Quality, Building Trust
             </h2>
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                For over 15 years, Deckora has been Colorado's premier deck building company, 
-                transforming outdoor spaces into beautiful, functional extensions of your home. We combine 
-                traditional craftsmanship with modern techniques to create decks that stand the test of time.
+                Horizon Carpentry & Handyman has been serving the Fairmount, La Fayette, and North Georgia area with exceptional
+                carpentry and handyman services. From deck construction to general repairs, we bring years of experience
+                and unwavering commitment to quality craftsmanship.
               </p>
               <p>
-                Our team of licensed professionals takes pride in every project, from intimate backyard 
-                retreats to expansive entertainment spaces. We work closely with each client to understand 
-                their vision and bring it to life with exceptional attention to detail.
+                Our skilled team specializes in carpentry, deck building, handyman services, home renovations,
+                and construction projects. Whether you need bathroom remodeling, deck installation, electrical work, or general repairs,
+                we approach every project with the same dedication to excellence.
               </p>
               <p>
-                What sets us apart is our commitment to quality, transparency, and customer satisfaction. 
-                Every deck we build comes with comprehensive warranties, and we use only premium materials 
-                from trusted manufacturers.
+                What sets us apart is our personal approach to every job. We take the time to understand
+                your needs, provide honest assessments, and deliver work that exceeds expectations.
+                Your satisfaction is our guarantee.
               </p>
             </div>
             
             {/* Key Stats */}
             <div className="grid grid-cols-3 gap-8 mt-8 pt-8 border-t border-gray-200">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">500+</div>
+                <div className="text-3xl font-bold text-blue-600">50+</div>
                 <div className="text-sm text-gray-600">Happy Clients</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">15+</div>
+                <div className="text-3xl font-bold text-blue-600">10+</div>
                 <div className="text-sm text-gray-600">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">5.0★</div>
+                <div className="text-3xl font-bold text-blue-600">4.7★</div>
                 <div className="text-sm text-gray-600">Average Rating</div>
               </div>
             </div>
@@ -74,8 +74,8 @@ const About: React.FC = () => {
           <div className="relative">
             <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855f48942e8ef583415f8e8.webp?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop"
-                alt="Professional deck builders at work"
+                src="https://storage.googleapis.com/msgsndr/aQYV8jwYWM9za5egdIl2/media/686738689ca6fba4f4182282.webp"
+                alt="Professional carpentry and handyman work"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -87,7 +87,7 @@ const About: React.FC = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900">Licensed & Insured</div>
-                  <div className="text-sm text-gray-600">Fully bonded professionals</div>
+                  <div className="text-sm text-gray-600">Professional carpentry services</div>
                 </div>
               </div>
             </div>
@@ -97,11 +97,11 @@ const About: React.FC = () => {
         {/* Values Section */}
         <div className="text-center mb-12">
           <h3 className="text-3xl font-bold text-gray-900 mb-4">
-            Why Choose Deckora?
+            Why Choose Horizon Carpentry & Handyman?
           </h3>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're not just deck builders – we're craftsmen who care about creating outdoor spaces 
-            that enhance your lifestyle and add value to your home.
+            We're skilled craftsmen who take pride in every project – from deck construction to complete
+            home improvements that enhance your living space and add lasting value.
           </p>
         </div>
 
@@ -130,16 +130,16 @@ const About: React.FC = () => {
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold mb-4">Our Simple Process</h3>
             <p className="text-blue-100 text-lg">
-              From initial consultation to final walkthrough, we make deck building easy and stress-free.
+              From initial consultation to project completion, we make home improvement easy and stress-free.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { step: "1", title: "Consultation", desc: "Free in-home consultation and 3D design" },
-              { step: "2", title: "Planning", desc: "Detailed planning and permit handling" },
-              { step: "3", title: "Building", desc: "Expert construction with daily updates" },
-              { step: "4", title: "Completion", desc: "Final walkthrough and warranty setup" }
+              { step: "1", title: "Consultation", desc: "Free assessment and project planning" },
+              { step: "2", title: "Planning", desc: "Detailed scope and material selection" },
+              { step: "3", title: "Execution", desc: "Expert craftsmanship with clear communication" },
+              { step: "4", title: "Completion", desc: "Final walkthrough and satisfaction guarantee" }
             ].map((item, index) => (
               <div key={index} className="text-center">
                 <div className="w-12 h-12 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4">

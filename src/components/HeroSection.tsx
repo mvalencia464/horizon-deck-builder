@@ -17,17 +17,17 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
-  backgroundImage = "https://storage.googleapis.com/msgsndr/BK5WOlszHMZB0udM7qC1/media/6855faf8ac945876f4b1ed43.webp?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop",
-  title = "See Your Dream Deck—Instantly",
-  subtitle = "",
-  description = "Get a free AI-generated deck design in seconds. No waiting, no commitment—just a stunning vision of your future outdoor space.",
+  backgroundImage = "https://storage.googleapis.com/msgsndr/aQYV8jwYWM9za5egdIl2/media/686738689ca6fba4f4182282.webp",
+  title = "Fairmount's Trusted",
+  subtitle = "Carpentry & Handyman Services",
+  description = "Serving Fairmount, La Fayette, and North Georgia with expert carpentry, deck building, handyman services, and home repairs. Licensed, insured, and locally trusted.",
   primaryButtonText = "Explore Our Services",
   secondaryButtonText = "View Our Work",
-  formTitle = "Get Your Free 3D Deck Design",
-  reviewText = "Rated 5.0 Stars by 150+ Happy Clients on Google!",
-  reviewCount = "150+",
+  formTitle = "Get Your Free Project Estimate",
+  reviewText = "Rated 4.7 Stars by 12+ North Georgia Homeowners!",
+  reviewCount = "12+",
   useCustomForm = true,
-  webhookUrl = "https://services.leadconnectorhq.com/hooks/aQYV8jwYWM9za5egdIl2/webhook-trigger/45081007-238f-45e8-885d-1113a3907426"
+  webhookUrl = import.meta.env.VITE_HIGHLEVEL_WEBHOOK_URL || ""
 }) => {
 
   return (

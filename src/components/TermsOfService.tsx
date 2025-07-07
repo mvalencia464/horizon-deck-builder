@@ -24,20 +24,24 @@ const TermsOfService: React.FC = () => {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Agreement to Terms</h2>
             <p className="text-gray-700">
-              By accessing and using Deckora's website and services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+              By accessing and using Horizon Carpentry & Handyman's website and services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Services</h2>
             <p className="text-gray-700 mb-4">
-              Deckora provides deck building, construction, and related services including:
+              Horizon Carpentry & Handyman provides carpentry, handyman, and related services including:
             </p>
             <ul className="list-disc pl-6 text-gray-700">
-              <li>Custom deck design and construction</li>
-              <li>Deck repair and restoration</li>
+              <li>Deck construction and repair</li>
+              <li>Bathroom remodeling</li>
+              <li>Home improvement and repair services</li>
+              <li>Handyman services</li>
+              <li>Electrical work</li>
+              <li>Siding installation</li>
+              <li>Tree service</li>
               <li>Consultation and estimation services</li>
-              <li>Material supply and installation</li>
             </ul>
           </section>
 
@@ -83,7 +87,7 @@ const TermsOfService: React.FC = () => {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Liability</h2>
             <p className="text-gray-700">
-              Deckora carries full liability insurance and bonding. Our liability is limited to the value of the work performed. We are not responsible for indirect or consequential damages.
+              Coastal Custom Carpentry carries full liability insurance and bonding. Our liability is limited to the value of the work performed. We are not responsible for indirect or consequential damages.
             </p>
           </section>
 
@@ -126,9 +130,9 @@ const TermsOfService: React.FC = () => {
               For questions about these Terms of Service, contact us:
             </p>
             <div className="bg-blue-50 p-4 rounded-lg">
-              <p className="text-gray-700"><strong>Email:</strong> info@deckora.com</p>
-              <p className="text-gray-700"><strong>Phone:</strong> (555) 123-4567</p>
-              <p className="text-gray-700"><strong>Address:</strong> Denver Metro Area, Colorado</p>
+              <p className="text-gray-700"><strong>Email:</strong> gibbywalker224@gmail.com</p>
+              <p className="text-gray-700"><strong>Phone:</strong> (509) 620-9939</p>
+              <p className="text-gray-700"><strong>Address:</strong> 166 Spring St, Fairmount, GA 30139</p>
             </div>
           </section>
 

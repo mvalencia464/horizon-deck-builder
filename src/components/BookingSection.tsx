@@ -11,8 +11,8 @@ const BookingSection: React.FC = () => {
             Schedule Your Free Consultation
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to transform your outdoor space? Book a free consultation with our deck building experts. 
-            We'll discuss your vision, provide a detailed estimate, and create a custom 3D design for your project.
+            Ready to transform your home? Book a free consultation with our carpentry and home improvement experts.
+            We'll discuss your vision, provide a detailed estimate, and plan the perfect solution for your project.
           </p>
         </div>
 
@@ -33,7 +33,7 @@ const BookingSection: React.FC = () => {
                   Site Assessment
                 </h4>
                 <p className="text-gray-600">
-                  We'll evaluate your space, discuss your vision, and assess any structural considerations for your new deck.
+                  We'll evaluate your space, discuss your vision, and assess any structural considerations for your project.
                 </p>
               </div>
 
@@ -45,7 +45,7 @@ const BookingSection: React.FC = () => {
                   Design Options
                 </h4>
                 <p className="text-gray-600">
-                  Review material options, design styles, and features that will make your deck perfect for your lifestyle.
+                  Review material options, design styles, and features that will make your project perfect for your lifestyle.
                 </p>
               </div>
 
@@ -65,7 +65,7 @@ const BookingSection: React.FC = () => {
 
           {/* Why Choose Us Section */}
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-6 text-center">Why Choose Deckora?</h3>
+            <h3 className="text-2xl font-bold mb-6 text-center">Why Choose Horizon Carpentry & Handyman?</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="flex items-center space-x-2">
                 <CheckCircle className="w-5 h-5 text-blue-200 flex-shrink-0" />
@@ -73,15 +73,15 @@ const BookingSection: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="w-5 h-5 text-blue-200 flex-shrink-0" />
-                <span className="text-blue-100">15+ Years Experience</span>
+                <span className="text-blue-100">10+ Years Experience</span>
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="w-5 h-5 text-blue-200 flex-shrink-0" />
-                <span className="text-blue-100">5-Star Rated</span>
+                <span className="text-blue-100">4.7-Star Rated</span>
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="w-5 h-5 text-blue-200 flex-shrink-0" />
-                <span className="text-blue-100">Free 3D Design</span>
+                <span className="text-blue-100">Free Estimates</span>
               </div>
             </div>
           </div>
@@ -118,14 +118,14 @@ const BookingSection: React.FC = () => {
               Prefer to Talk First?
             </h3>
             <p className="text-gray-600 mb-6">
-              Give us a call and we'll answer any questions you have about your deck project.
+              Give us a call and we'll answer any questions you have about your home improvement project.
             </p>
             <a
-              href="tel:+15551234567"
+              href="tel:+15096209939"
               className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
             >
               <Calendar className="w-5 h-5 mr-2" />
-              Call (555) 123-4567
+              Call (509) 620-9939
             </a>
           </div>
         </div>
