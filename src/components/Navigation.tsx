@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
+import { colors } from '../utils/colors';
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,8 +10,13 @@ const Navigation: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const scrolled = window.scrollY > 100;
+      setIsScrolled(scrolled);
     };
+
+    // Check initial scroll position
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -23,9 +29,9 @@ const Navigation: React.FC = () => {
   ];
 
   const locations = [
-    'Fairmount', 'La Fayette', 'Dalton', 'Rome',
-    'Calhoun', 'Chatsworth', 'Summerville', 'Trion',
-    'Ringgold', 'Chickamauga', 'Rossville', 'Fort Oglethorpe'
+    'Brunswick', 'St. Simons Island', 'Jekyll Island', 'Sea Island',
+    'Glynn County', 'Camden County', 'McIntosh County', 'Brantley County',
+    'Waycross', 'Kingsland', 'Woodbine', 'Darien'
   ];
 
   const services = [
@@ -44,17 +50,23 @@ const Navigation: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-lg' : ''
+      }`}
+      style={{
+        backgroundColor: isScrolled ? 'white' : 'transparent',
+        background: isScrolled ? 'white' : 'transparent'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <h1 className={`text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-blue-800' : 'text-white'
+              isScrolled ? 'text-primary-800' : 'text-white'
             }`}>
-              Horizon Carpentry & Handyman
+              Coastal Custom Carpentry
             </h1>
           </div>
 
@@ -68,8 +80,8 @@ const Navigation: React.FC = () => {
                   onMouseLeave={() => setServicesOpen(false)}
                   className={`flex items-center px-3 py-2 text-sm font-medium transition-colors duration-300 hover:scale-105 ${
                     isScrolled
-                      ? 'text-gray-700 hover:text-blue-600'
-                      : 'text-white hover:text-blue-200'
+                      ? 'text-gray-700 hover:text-primary-600'
+                      : 'text-white hover:text-primary-200'
                   }`}
                 >
                   Services
@@ -87,7 +99,7 @@ const Navigation: React.FC = () => {
                         <a
                           key={index}
                           href="#"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors duration-200"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md transition-colors duration-200"
                         >
                           {service}
                         </a>
@@ -104,8 +116,8 @@ const Navigation: React.FC = () => {
                   onMouseLeave={() => setLocationsOpen(false)}
                   className={`flex items-center px-3 py-2 text-sm font-medium transition-colors duration-300 hover:scale-105 ${
                     isScrolled
-                      ? 'text-gray-700 hover:text-blue-600'
-                      : 'text-white hover:text-blue-200'
+                      ? 'text-gray-700 hover:text-primary-600'
+                      : 'text-white hover:text-primary-200'
                   }`}
                 >
                   Locations
@@ -123,7 +135,7 @@ const Navigation: React.FC = () => {
                         <a
                           key={index}
                           href="#"
-                          className="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors duration-200"
+                          className="block px-3 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md transition-colors duration-200"
                         >
                           {location}
                         </a>
@@ -140,8 +152,8 @@ const Navigation: React.FC = () => {
                   href={item.href}
                   className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:scale-105 ${
                     isScrolled
-                      ? 'text-gray-700 hover:text-blue-600'
-                      : 'text-white hover:text-blue-200'
+                      ? `${colors.neutral.text.dark} ${colors.primary.hover.text.main}`
+                      : `text-white hover:text-primary-200`
                   }`}
                 >
                   {item.name}
@@ -150,19 +162,15 @@ const Navigation: React.FC = () => {
             </div>
           </div>
 
-          {/* Phone Button */}
-          <div className="hidden md:flex items-center">
+          {/* Phone Button - Always visible with responsive text */}
+          <div className="flex items-center">
             <a
               href="tel:+15096209939"
-              className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
-                isScrolled
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                  : 'bg-white hover:bg-blue-50 text-blue-600'
-              }`}
+              className="flex items-center space-x-2 px-3 py-2 md:px-4 md:py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 bg-primary-600 hover:bg-primary-700 text-white"
             >
               <Phone className="w-4 h-4" />
-              <span className="hidden lg:inline">(509) 620-9939</span>
-              <span className="lg:hidden">Call</span>
+              <span className="hidden sm:inline">(509) 620-9939</span>
+              <span className="sm:hidden">Call</span>
             </a>
           </div>
 
@@ -171,9 +179,9 @@ const Navigation: React.FC = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 rounded-md transition-colors duration-300 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:text-blue-600' 
-                  : 'text-white hover:text-blue-200'
+                isScrolled
+                  ? 'text-gray-700 hover:text-primary-600'
+                  : 'text-white hover:text-primary-200'
               }`}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -194,7 +202,7 @@ const Navigation: React.FC = () => {
                     <a
                       key={index}
                       href="#"
-                      className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md text-sm transition-colors duration-300"
+                      className="block px-3 py-2 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-md text-sm transition-colors duration-300"
                       onClick={() => setIsOpen(false)}
                     >
                       {service}
@@ -211,7 +219,7 @@ const Navigation: React.FC = () => {
                     <a
                       key={index}
                       href="#"
-                      className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md text-sm transition-colors duration-300"
+                      className="block px-3 py-2 text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-md text-sm transition-colors duration-300"
                       onClick={() => setIsOpen(false)}
                     >
                       {location}
@@ -225,7 +233,7 @@ const Navigation: React.FC = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md text-base font-medium transition-colors duration-300"
+                  className={`block px-3 py-2 ${colors.neutral.text.dark} ${colors.primary.hover.text.main} hover:bg-primary-50 rounded-md text-base font-medium transition-colors duration-300`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
@@ -235,7 +243,7 @@ const Navigation: React.FC = () => {
               <div className="border-t pt-3 mt-3">
                 <a
                   href="tel:+15096209939"
-                  className="flex items-center space-x-2 px-3 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors duration-300"
+                  className="flex items-center space-x-2 px-3 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-bold transition-colors duration-300"
                 >
                   <Phone className="w-4 h-4" />
                   <span>(509) 620-9939</span>
